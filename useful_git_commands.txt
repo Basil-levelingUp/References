@@ -1,0 +1,70 @@
+
+=============================================================== MISC. COMMANDS =====================================================
+git status                                                                                                                          
+git log                                                                                                                             
+																																	
+=============================================================== CREATING NEW PROJECT ===============================================
+git init                                                                                                                            
+git remote add origin <remote repo url>                                                                                             
+git add .                                                                                                                           
+git commit -m "Commit Name"                                                                                                         
+git push origin master                                                                                                              
+                                                                                                                                    
+=============================================================== VIEWING REMOTE REPOSITORY ==========================================
+git remote show origin                                                                                                              
+git remote -v                                                                                                                       
+                                                                                                                                    
+=============================================================== CLONING ============================================================
+git clone <remote repo url>                                                                                                         
+git clone -b <branch name> <remote repo url>							%% clone specific branch                                    
+                                                                                                                                    
+=============================================================== TAGS ===============================================================
+git clone <remote repo url>                                                                                                         
+git tag -l																%% lists all tags                                           
+git checkout tags/<tag name>											%% checksout specific tag                                   
+                                                                                                                                    
+=============================================================== PUBLISH CHANGES TO REMOTE REPO =====================================
+git add .
+git commit -m "<Commit Message>"
+git fetch
+git push 																%% git push --set-upstream origin master
+
+git push --set-upstream origin <branch name> 
+
+=============================================================== Local folder to remote repo ========================================
+git init
+git add .
+git commit -m "<commit message>"
+git remote add origin <remote repo url>
+git remote -v
+git checkout -b <new branch name>						%% pushing to new remote branch
+git push -u origin RIC_Lab_Current_State 
+
+git push origin master
+
+=============================================================== Large file track ========================================
+fsutil file createnew test.txt 120000000
+
+git lfs install
+
+git lfs track 			%%files tracked by lfs, shouldnt see anything
+git lfs status 			%%files tracked by lfs before commit, shouldnt see anything
+git lfs ls-files 		%%files tracked by lfs after commit, shouldnt see anything
+
+git lfs track 'filename'	%% should generate .gitattributes file
+git lfs track 				%%should see tracked files
+git lfs status 				%%should see tracked files
+
+git add .					%% should add gitattributes and large file to be staged
+git commit -m ""			%% commit all files including lfs to be pushed
+git lfs ls-files 			%%files tracked by lfs after commit, should see tracked files
+
+git push origin master
+
+
+
+
+
+
+
+
